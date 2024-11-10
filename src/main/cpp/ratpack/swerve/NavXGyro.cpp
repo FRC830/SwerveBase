@@ -1,4 +1,4 @@
-#include "NavXGyro.h"
+#include "ratpack/Swerve/NavXGyro.h"
 
 
 void NavXGyro::Configure(GyroConfig &config)

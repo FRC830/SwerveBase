@@ -1,4 +1,4 @@
-#include"NeoTurnMotor.h"
+#include"ratpack/swerve/NeoTurnMotor.h"
 #include "ratpack/CANSparkMaxDebugMacro.h"
 
 void NeoTurnMotor::Configure(SwerveTurnMotorConfig &config){

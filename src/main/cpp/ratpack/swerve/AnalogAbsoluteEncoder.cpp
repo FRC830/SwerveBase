@@ -1,4 +1,4 @@
-#include "AnalogAbsoluteEncoder.h"
+#include "ratpack/swerve/AnalogAbsoluteEncoder.h"
 
 void AnalogAbsoluteEncoder::Configure(AbsoluteEncoderConfig &config)
 {

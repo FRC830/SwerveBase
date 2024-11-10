@@ -1,7 +1,7 @@
 #pragma once
-#include "Interfaces/SwerveModule.h"
-#include "Interfaces/SwerveDriveMotor.h"
-#include "Interfaces/SwerveTurnMotor.h"
+#include "ratpack/swerve/Interfaces/SwerveModule.h"
+#include "ratpack/swerve/Interfaces/SwerveDriveMotor.h"
+#include "ratpack/swerve/Interfaces/SwerveTurnMotor.h"
 
 
 struct SwerveModuleConfig

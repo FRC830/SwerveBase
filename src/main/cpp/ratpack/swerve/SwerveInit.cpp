@@ -1,11 +1,12 @@
 #include "Robot.h"
-#include "SwerveConfig.h"
+#include "ratpack/swerve/SwerveConfig.h"
 
   namespace ModulePosition
   { 
     static const int FL = 0;
     static const int FR = 1;
     static const int BL  = 2;
+
     static const int BR  = 3; 
   };
 

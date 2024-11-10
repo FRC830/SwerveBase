@@ -1,4 +1,4 @@
-#include "NeoDriveMotor.h"
+#include "ratpack/swerve/NeoDriveMotor.h"
 #include "ratpack/CANSparkMaxDebugMacro.h"
 
 void NeoDriveMotor::Configure(SwerveDriveMotorConfig &config){
