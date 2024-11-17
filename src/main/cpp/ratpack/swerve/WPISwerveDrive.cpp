@@ -2,6 +2,7 @@
 #include "frc/Timer.h"
 #include <frc/geometry/Pose2d.h>
 #include <frc/kinematics/ChassisSpeeds.h>
+#include <math.h>
 
 void WPISwerveDrive::Configure(SwerveConfig &config){
     frc::SmartDashboard::PutData("Field", &m_field);
@@ -159,4 +160,21 @@ double WPISwerveDrive::ApplyDeadzone(double input)
     }
 
     return output;
+}
+
+void WPISwerveDrive::ApplyCylindricalDeadzone(double x, double y)
+{
+    double d =sqrt(pow(x,2)+pow(y,2));
+    if((d)<= m_deadzone)
+    {
+        x=0.0;
+        y=0.0;
+    }
+    else
+    {
+        double angle = atan(y/x);
+        double r = ((d-m_deadzone)/(1.0-m_deadzone));
+        double newx = r*(cos(angle));
+        double newy = r*(sin(angle));
+    }
 }

@@ -75,6 +75,7 @@ class WPISwerveDrive : public SwerveDrive
         double m_deadzone;
 
         double ApplyDeadzone(double input);
+        void ApplyCylindricalDeadzone(double x, double y);
         SwerveGyro *m_gyro;
         frc::SwerveDrivePoseEstimator<4> *m_estimator;
 };
