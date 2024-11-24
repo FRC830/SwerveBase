@@ -32,8 +32,9 @@ void WPISwerveDrive::SetEbrake(bool ebrake) {
     m_ebrake = ebrake;
 }
 void WPISwerveDrive::Drive(double x_position, double y_position, double rotation) {
-    x_position = ApplyDeadzone(x_position);
-    y_position = ApplyDeadzone(y_position);
+    auto val = ApplyCylindricalDeadzone(x_position, y_position);
+    x_position = val.first;
+    y_position = val.second;
     rotation = ApplyDeadzone(rotation);
     
      Drive(
@@ -162,7 +163,7 @@ double WPISwerveDrive::ApplyDeadzone(double input)
     return output;
 }
 
-void WPISwerveDrive::ApplyCylindricalDeadzone(double x, double y)
+std::pair<double, double> WPISwerveDrive::ApplyCylindricalDeadzone(double x, double y)
 {
     double d =sqrt(pow(x,2)+pow(y,2));
     if((d)<= m_deadzone)
@@ -174,7 +175,9 @@ void WPISwerveDrive::ApplyCylindricalDeadzone(double x, double y)
     {
         double angle = atan(y/x);
         double r = ((d-m_deadzone)/(1.0-m_deadzone));
-        double newx = r*(cos(angle));
-        double newy = r*(sin(angle));
+        x = r*(cos(angle));
+        y = r*(sin(angle));
     }
+
+    return std::make_pair(x, y);
 }

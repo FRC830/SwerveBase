@@ -9,6 +9,7 @@
 #include <frc/geometry/Pose2d.h>
 #include <frc/kinematics/ChassisSpeeds.h>
 #include <frc/DriverStation.h>
+#include <utility>
 
 struct SwerveConfig{
     bool idle_mode;
@@ -75,7 +76,7 @@ class WPISwerveDrive : public SwerveDrive
         double m_deadzone;
 
         double ApplyDeadzone(double input);
-        void ApplyCylindricalDeadzone(double x, double y);
+        std::pair<double, double> ApplyCylindricalDeadzone(double x, double y);
         SwerveGyro *m_gyro;
         frc::SwerveDrivePoseEstimator<4> *m_estimator;
 };
